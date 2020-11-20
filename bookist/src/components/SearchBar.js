@@ -1,0 +1,38 @@
+import React, { Component } from 'react'
+
+class SearchBar extends Component {
+    constructor() {
+        super()
+        this.state = {
+            input: ''
+        }
+    }
+
+    handleInput(val) {
+        this.setState({ input: val })
+    }
+
+    handleClick() {
+        this.props.filterBooks(this.state.input)
+    }
+
+    handleClear() {
+        this.props.clearSearch()
+        Array.from(document.querySelector('input'))
+        this.setState({
+            input: ''
+        })
+    }
+
+    render() {
+        return (
+            <div className='searchBar-container'>
+                <input className='search-input' onChange={(e) => this.handleInput(e.target.value)} type='text'></input>
+                <button className='search-buttons' onClick={() => { this.handleClick() }}>search</button>
+                <button className='search-buttons' onClick={() => { this.handleClear() }}>clear search</button>
+            </div>
+        )
+    }
+}
+
+export default SearchBar

@@ -1,0 +1,132 @@
+.App {
+  height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  background-image: linear-gradient( 360deg,#b8b8b8, rgb(255, 255, 255));
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.header {
+  background-color: #9da0a5;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 75px;
+  font-family:monospace;
+  color: rgb(5, 116, 51);
+  text-shadow: 1px 3px 0 #7A7A7A;
+  box-shadow: 0px 0px 10px black;
+  margin-bottom: 20px;
+}
+.searchBar-container{
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.hero{
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+}
+img{
+  height: 15em;
+  width: 12em;
+}
+
+
+.book-list{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.book-info{
+  height: 15em;
+  width: 12em;
+  padding: 5px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+.book-info:hover{
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+  color: rgb(5, 116, 51);
+  cursor: pointer;
+}
+
+.book-info:active{
+  color: gray;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.your-shelf{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-left: 2px solid rgb(5, 116, 51);
+  font-family: monospace;
+  font-weight: bold;
+  color: rgb(5, 116, 51);
+
+}
+.new-book-added{
+  padding: 10px;
+}
+
+.clear-shelf-button{
+  width: 200px;
+  border: 2px solid rgb(71, 71, 71);
+  background-color: transparent;
+  font-family: monospace;
+  outline: none;
+}
+.clear-shelf-button:hover{
+  background-color: rgb(5, 116, 51);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.search-buttons{
+  width: 200px;
+  border: 2px solid rgb(71, 71, 71);
+  background-color: transparent;
+  font-family: monospace;
+  margin: 5px;
+  outline:none;
+}
+
+.search-buttons:hover{
+  background-color: rgb(5, 116, 51);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+input{
+  height: 20px;
+  width: 400px;
+  background-color: rgba(5, 116, 51, 0.479);
+  border: none;
+  outline:none;
+  font-family: monospace;
+  margin: 5px;
+}
+input:focus{
+  background-color: rgb(5, 116, 51);
+  color: white
+}
+
