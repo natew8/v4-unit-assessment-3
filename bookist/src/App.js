@@ -35,7 +35,7 @@ class App extends Component {
   filterBooks = (input) => {
     let filteredBooks = this.state.books
     filteredBooks = filteredBooks.filter((element) => {
-      return element.title.includes(input)
+      return element.title.toLowerCase().includes(input) || element.author.toLowerCase().includes(input)
     })
     this.setState({
       books: filteredBooks

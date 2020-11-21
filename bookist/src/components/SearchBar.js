@@ -27,7 +27,7 @@ class SearchBar extends Component {
     render() {
         return (
             <div className='searchBar-container'>
-                <input className='search-input' onChange={(e) => this.handleInput(e.target.value)} type='text'></input>
+                <input className='search-input' onChange={(e) => this.handleInput(e.target.value.toLowerCase())} type='text'></input>
                 <button className='search-buttons' onClick={() => { this.handleClick() }}>search</button>
                 <button className='search-buttons' onClick={() => { this.handleClear() }}>clear search</button>
             </div>
