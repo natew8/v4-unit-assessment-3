@@ -18,10 +18,7 @@ class SearchBar extends Component {
 
     handleClear() {
         this.props.clearSearch()
-        Array.from(document.querySelector('input'))
-        this.setState({
-            input: ''
-        })
+        return this.input.clearSearch()
     }
 
     render() {
