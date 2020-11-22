@@ -1,96 +1,146 @@
-  ////////////PROBLEM 1////////////
-  
-  /*
-    Write a function called myFunc. 
-    Inside the function, we'll create a variable and another function. 
-    Call the variable myStr and set it to the string 'super secret string'. 
-    Call the function getSecretString and have it return the myStr variable. 
-    myFunc should return getSecretString
-  */
-  
-  //CODE HERE
+////////////PROBLEM 1////////////
 
-  
-  //Now create a variable called secretString. Its value should be the invocation of myFunc.
+/*
+  Write a function called myFunc. 
+  Inside the function, we'll create a variable and another function. 
+  Call the variable myStr and set it to the string 'super secret string'. 
+  Call the function getSecretString and have it return the myStr variable. 
+  myFunc should return getSecretString
+*/
 
-  //CODE HERE
-  
-  
-  ////////////PROBLEM 2////////////
+function myFunc() {
+  const myStr = 'super secret string'
+  return function getSecretString() {
+    return myStr
+  }
+}
 
-  /*
-    Write a function called lightSwitch. It will return an inner function.
-    Create a variable inside lightSwitch called isTheLightOn and set its initial value to the boolean false. 
-    Write a function called flipTheSwitch inside lightSwitch. 
-    The function should invert the value of isTheLightOn and return a string. 
-    If the light is on (true), the string should be 'The light is on'
-    And if the light is off (false), the string should be 'The light is off'. 
-    The lightSwitch function should return flipTheSwitch.
-  */
-  
-  //CODE HERE
+myFunc()
 
-  
-  //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
-  
-  //CODE HERE
+//Now create a variable called secretString. Its value should be the invocation of myFunc.
 
-  
-  //Invoke kitchenSwitch.
-
-  //CODE HERE
-  
-  
-  //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
-
-  //CODE HERE
-  
-  
-  //Invoke bathroomSwitch twice.
-  
-  //CODE HERE
-
-  
-  
-  ////////////PROBLEM 3////////////
-
-  /*
-    Use the module pattern to create a plant height tracker, name your function 'plantTracker'
-    Set up two variables inside plantTracker, 'plant' which should be set to 'fern' and 'height' which should be set to 12
-    Return 3 functions using the module pattern
-      - 'readInfo' should return a string of 'This is a PLANT plant that is HEIGHT inches tall.', where PLANT is the value of the plant variable and HEIGHT is the value of the height variable.
-      - 'waterPlant' should add 1 to the height and return the new height
-      - 'prunePlant' should subtract 1 from the height and return the new height
-  */
-
-  //CODE HERE
+const secretString = myFunc()
 
 
-  ////////////PROBLEM 4////////////
+////////////PROBLEM 2////////////
 
-  /*
-    Use the module pattern to create an inventory, name the function 'inventory'
-    Set up a variable inside inventory called 'products' initialized as an empty array.  
-    Return 3 functions using the module pattern
-      - 'readProducts' should return the products array
-      - 'addToProducts' should receive one argument, a string, and add it into the products array
-      - 'deleteFromProducts' should receive one argument, a string, and delete it from the products array
-        - hint: try to find the index of the string first
-  */
+/*
+  Write a function called lightSwitch. It will return an inner function.
+  Create a variable inside lightSwitch called isTheLightOn and set its initial value to the boolean false.
+  Write a function called flipTheSwitch inside lightSwitch.
+  The function should invert the value of isTheLightOn and return a string.
+  If the light is on (true), the string should be 'The light is on'
+  And if the light is off (false), the string should be 'The light is off'.
+  The lightSwitch function should return flipTheSwitch.
+*/
 
-  //CODE HERE
+function lightSwitch() {
+  let isTheLightOn = false
+  return function flipTheSwitch() {
+    if (isTheLightOn === false) {
+      isTheLightOn = true
+      return `The light is on`
+    } else {
+      isTheLightOn = false
+      return `The light is on`
+    }
+  }
+}
 
 
-  /*
-    Create a variable called 'shoes' whose value is the invocation of inventory.
-  */
+//Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
 
-  //CODE HERE
+const kitchenSwitch = lightSwitch()
 
 
-  /*
-    Add an item to your shoes array using the addToProducts function
-  */
+//Invoke kitchenSwitch.
 
-  //CODE HERE
+kitchenSwitch()
+
+
+
+//Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
+
+let bathroomSwitch = lightSwitch()
+
+
+//Invoke bathroomSwitch twice.
+
+bathroomSwitch()
+
+
+
+////////////PROBLEM 3////////////
+
+/*
+  Use the module pattern to create a plant height tracker, name your function 'plantTracker'
+  Set up two variables inside plantTracker, 'plant' which should be set to 'fern' and 'height' which should be set to 12
+  Return 3 functions using the module pattern
+    - 'readInfo' should return a string of 'This is a PLANT plant that is HEIGHT inches tall.', where PLANT is the value of the plant variable and HEIGHT is the value of the height variable.
+    - 'waterPlant' should add 1 to the height and return the new height
+    - 'prunePlant' should subtract 1 from the height and return the new height
+*/
+
+function plantTracker() {
+  let plant = 'fern'
+  let height = 12
+
+  return {
+    readInfo: () => {
+      return `This is a ${plant} plant that is ${height} inches tall.`
+    },
+    waterPlant: () => {
+      height += 1
+      return height
+    },
+    prunePlant: () => {
+      height -= 1
+      return height
+    }
+  }
+}
+
+
+////////////PROBLEM 4////////////
+
+/*
+  Use the module pattern to create an inventory, name the function 'inventory'
+  Set up a variable inside inventory called 'products' initialized as an empty array.
+  Return 3 functions using the module pattern
+    - 'readProducts' should return the products array
+    - 'addToProducts' should receive one argument, a string, and add it into the products array
+    - 'deleteFromProducts' should receive one argument, a string, and delete it from the products array
+      - hint: try to find the index of the string first
+*/
+
+function inventory() {
+  let products = []
+  return {
+    readProducts: () => {
+      return products
+    },
+    addToProducts: (newprod) => {
+      products.push(newprod)
+      return products
+    },
+    deleteFromProducts: (string) => {
+      const index = products.indexOf(string)
+      products.splice(index, 1)
+      return products
+    }
+  }
+}
+
+
+/*
+  Create a variable called 'shoes' whose value is the invocation of inventory.
+*/
+const shoes = inventory()
+
+
+/*
+  Add an item to your shoes array using the addToProducts function
+*/
+
+shoes.addToProducts('nike')
 
